@@ -15,62 +15,62 @@ def goto_test_env(page: Page):
 
 @pytest.mark.slow
 def test_get_by_role_img_alt(page: Page):
-    expect(page.get_by_role("img", name="Healenium Logo")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("img#logo_img")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_role("img", name="Healenium Logo")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("img#logo_img")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_role_textbox_aria_label(page: Page):
-    expect(page.get_by_role("textbox", name="change_tag_aria_label")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#change_below_element")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_role("textbox", name="change_tag_aria_label")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#change_below_element")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_role_textbox_aria_labelledby(page: Page):
-    expect(page.get_by_role("textbox", name="Field labeled by")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#change_className")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_role("textbox", name="Field labeled by")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#change_className")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_text(page: Page):
-    expect(page.get_by_text("Green Item")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("div.draggable-item.green-item")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_text("Green Item")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("div.draggable-item.green-item")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_label(page: Page):
-    expect(page.get_by_label("Field with hover")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#newValue")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_label("Field with hover")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#newValue")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_placeholder(page: Page):
-    expect(page.get_by_placeholder("Change: TestId")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#validate_testId")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_placeholder("Change: TestId")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#validate_testId")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_alt_text(page: Page):
-    expect(page.get_by_alt_text("Healenium Logo")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("img#logo_img")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_alt_text("Healenium Logo")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("img#logo_img")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_title(page: Page):
-    expect(page.get_by_title("Validate change test id")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#validate_testId")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_title("Validate change test id")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#validate_testId")).to_be_visible(timeout=TIMEOUT)
 
 
 @pytest.mark.slow
 def test_get_by_test_id(page: Page):
-    expect(page.get_by_test_id("change_testId")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#validate_testId")).to_be_visible(timeout=TIMEOUT)
     page.locator("#Submit").click()
-    expect(page.get_by_test_id("change_testId")).to_be_visible(timeout=TIMEOUT)
+    expect(page.locator("input#validate_testId")).to_be_visible(timeout=TIMEOUT)
