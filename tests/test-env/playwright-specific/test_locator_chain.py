@@ -13,7 +13,6 @@ BASE_URL = "https://healenium.github.io/healenium-test-env/index.html"
 def goto_test_env(page: Page):
     page.goto(BASE_URL, wait_until="load")
 
-
 @pytest.mark.slow
 def test_simple_chain_form_then_get_by_placeholder(page: Page):
     input_el = page.locator("#main_form").get_by_placeholder("Change: TestId")
@@ -82,3 +81,19 @@ def test_chain_with_or_get_by_title_or_get_by_test_id(page: Page):
     page.locator("#Submit").click()
     healed = page.get_by_title("Validate change test id").or_(page.get_by_test_id("change_testId"))
     expect(healed).to_have_value("or title testid", timeout=TIMEOUT)
+
+@pytest.mark.slow
+def test_chain_with_test_tag_then_first(page: Page):
+    element = page.locator("test_tag").first
+    expect(element).to_be_visible(timeout=TIMEOUT)
+    page.locator("#Submit").click()
+    healed = page.locator("test_tag").first
+    expect(healed).to_be_visible(timeout=TIMEOUT)
+
+@pytest.mark.slow
+def test_chain_with_child_tag_then_last(page: Page):
+    element = page.locator("child_tag").last
+    expect(element).to_be_visible(timeout=TIMEOUT)
+    page.locator("#Submit").click()
+    healed = page.locator("child_tag").last
+    expect(healed).to_be_visible(timeout=TIMEOUT)
